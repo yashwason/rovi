@@ -31,3 +31,7 @@ func DriveAhead(){
 func DriveReverse(){
 	drive(Reverse);
 }
+
+func StopDriving(){
+	fmt.Println("Stopped driving");
+}

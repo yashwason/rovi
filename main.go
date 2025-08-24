@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Supported commands: drive/reverse/left/right/exit")
+	fmt.Println("Supported commands:\ndrive\nreverse\nleft\nright\nstop\nexit")
 	fmt.Println("--------------------------------------------")
 
 commandLoop:
@@ -27,11 +27,15 @@ commandLoop:
 			motor.DriveAhead()
 		case `reverse`:
 			motor.DriveReverse()
+		case `stop`:
+			motor.StopDriving()
 		case `exit`:
 			break commandLoop
 		default:
 			fmt.Printf("Cannot do '%s'\n", command)
 		}
+
+		fmt.Println("---------------")
 	}
 
 	fmt.Println("Rovi exited. Thank you!")
