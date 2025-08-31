@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func main() {
+func mainTwo() {
 	fmt.Println("Supported commands:\ndrive\nreverse\nleft\nright\nstop\nexit")
 	fmt.Println("--------------------------------------------")
 
