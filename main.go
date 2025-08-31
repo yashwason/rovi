@@ -2,12 +2,15 @@ package main
 
 import (
 	"machine"
+	"rovi/led"
 	"rovi/motor"
 	"time"
 )
 
 func main() {
-	time.Sleep(time.Millisecond * 2000)
+	time.Sleep(time.Millisecond * 5000)
+
+	led.InitLEDPin()
 
 	println("Use keyboard keys a, s, d, w & spacebar to control")
 	println("--------------------------------------------")

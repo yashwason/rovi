@@ -1,5 +1,7 @@
 package motor
 
+import "rovi/led"
+
 type DriveDirection int
 
 const (
@@ -19,6 +21,7 @@ func (d DriveDirection) String() string {
 }
 
 func drive(d DriveDirection){
+	led.FlashLED(led.DEFAULT_LED_FLASH_DURATION)
 	println("Drove:", d.String());
 }
 
@@ -31,5 +34,6 @@ func DriveReverse(){
 }
 
 func StopDriving(){
+	led.FlashLED(led.DEFAULT_LED_FLASH_DURATION)
 	println("Stopped driving");
 }

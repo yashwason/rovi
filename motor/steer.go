@@ -1,5 +1,7 @@
 package motor
 
+import "rovi/led"
+
 type SteerDirection int
 
 const (
@@ -19,6 +21,7 @@ func (d SteerDirection) String() string{
 }
 
 func steer(d SteerDirection){
+	led.FlashLED(led.DEFAULT_LED_FLASH_DURATION)
 	println("Steered:", d.String());
 }
 
