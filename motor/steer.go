@@ -1,7 +1,5 @@
 package motor
 
-import "fmt"
-
 type SteerDirection int
 
 const (
@@ -21,7 +19,7 @@ func (d SteerDirection) String() string{
 }
 
 func steer(d SteerDirection){
-	fmt.Printf("Steered: %s\n", d);
+	println("Steered:", d.String());
 }
 
 func SteerLeft(){

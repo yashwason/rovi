@@ -1,7 +1,5 @@
 package motor
 
-import "fmt"
-
 type DriveDirection int
 
 const (
@@ -21,7 +19,7 @@ func (d DriveDirection) String() string {
 }
 
 func drive(d DriveDirection){
-	fmt.Printf("Drove: %s\n", d);
+	println("Drove:", d.String());
 }
 
 func DriveAhead(){
@@ -33,5 +31,5 @@ func DriveReverse(){
 }
 
 func StopDriving(){
-	fmt.Println("Stopped driving");
+	println("Stopped driving");
 }

@@ -1,42 +1,35 @@
 package main
 
 import (
-	"fmt"
+	"machine"
 	"rovi/motor"
-	"strings"
+	"time"
 )
 
 func main() {
-	fmt.Println("Supported commands:\ndrive\nreverse\nleft\nright\nstop\nexit")
-	fmt.Println("--------------------------------------------")
+	time.Sleep(time.Millisecond * 2000)
 
-commandLoop:
+	println("Use keyboard keys a, s, d, w & spacebar to control")
+	println("--------------------------------------------")
+
 	for {
-		var command string
+		b, err := machine.Serial.ReadByte()
 
-		fmt.Println("Enter command:")
-
-		fmt.Scanln(&command)
-
-		switch strings.ToLower(command) {
-		case `left`:
-			motor.SteerLeft()
-		case `right`:
-			motor.SteerRight()
-		case `drive`:
-			motor.DriveAhead()
-		case `reverse`:
-			motor.DriveReverse()
-		case `stop`:
-			motor.StopDriving()
-		case `exit`:
-			break commandLoop
-		default:
-			fmt.Printf("Cannot do '%s'\n", command)
+		if err == nil {
+			switch rune(b) {
+			case 'a', 'A':
+				motor.SteerLeft()
+			case 'd', 'D':
+				motor.SteerRight()
+			case 'w', 'W':
+				motor.DriveAhead()
+			case 's', 'S':
+				motor.DriveReverse()
+			case ' ':
+				motor.StopDriving()
+			default:
+				println("Unknown command")
+			}
 		}
-
-		fmt.Println("---------------")
 	}
-
-	fmt.Println("Rovi exited. Thank you!")
 }
