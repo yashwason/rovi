@@ -2,18 +2,19 @@ package main
 
 import (
 	"machine"
-	"rovi/led"
 	"rovi/motor"
 	"time"
 )
 
 func main() {
-	time.Sleep(time.Millisecond * 5000)
+	time.Sleep(time.Millisecond * 20)
 
-	led.InitLEDPin()
+	motor.InitDriveMotors();
 
 	println("Use keyboard keys a, s, d, w & spacebar to control")
 	println("--------------------------------------------")
+
+	time.Sleep(time.Millisecond * 20);
 
 	for {
 		b, err := machine.Serial.ReadByte()
